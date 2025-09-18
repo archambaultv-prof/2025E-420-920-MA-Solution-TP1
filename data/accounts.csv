@@ -1,0 +1,6 @@
+id,name,type
+1001,Compte courant,actif
+2001,Carte de crédit,passif
+3001,Solde d'ouverture,capitaux propres
+4001,Salaire compagnie ABC,revenu
+5001,Nourriture,dépense

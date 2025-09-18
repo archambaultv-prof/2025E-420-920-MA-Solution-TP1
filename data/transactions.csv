@@ -1,0 +1,7 @@
+id,date,compte,montant
+1,2025-01-01,Solde d'ouverture,-4000
+1,2025-01-01,Compte courant,4000
+2,2025-03-03,Carte de crédit,-400
+2,2025-03-03,Nourriture,400
+3,2025-01-01,Solde d'ouverture,500
+3,2025-01-01,Carte de crédit,-500
