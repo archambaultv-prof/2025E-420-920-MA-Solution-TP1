@@ -11,4 +11,8 @@ def accounts_generator(path: Path):
         id = int(row["id"])
         name = row["name"].strip()
         account_type = row["type"].strip()
-        yield Account(id, name, account_type)
+        try:
+            acc = Account(id, name, account_type)
+        except ValueError as e:
+            raise ValueError(f"Erreur lors de la création du compte {id}: {e}")
+        yield acc

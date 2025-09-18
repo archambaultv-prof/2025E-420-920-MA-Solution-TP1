@@ -16,7 +16,7 @@ def postings_generator(path: Path, accounts: dict[str, Account]):
         account_name = row["compte"]
         try:
             account = accounts[account_name]
-        except KeyError:
-            raise ValueError(f"Compte inconnu: {account_name}")
+        except KeyError as e:
+            raise ValueError(f"Transaction {id} compte inconnu: '{account_name}'") from e
         amount = float(row["montant"])
         yield Posting(id, dt, account, amount)
