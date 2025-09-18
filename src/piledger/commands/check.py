@@ -14,7 +14,7 @@ def check_command(journal: Journal) -> None:
     # vérifie quand même les comptes un par un de manière paresseuse.
     accounts = list(check_accounts_generator(journal))
     accounts_dict = {acc.name: acc for acc in accounts}
-    check_transactions_generator(journal, accounts_dict)
+    check_transactions(journal, accounts_dict)
 
     # Si on arrive ici, tout est valide
     print("Vérification réussie : toutes les transactions et comptes sont valides.")
@@ -30,7 +30,7 @@ def check_accounts_generator(journal: Journal):
         seen_ids.add(account.account_id)
         yield account
 
-def check_transactions_generator(journal: Journal, accounts: dict[str, Account]) -> None:
+def check_transactions(journal: Journal, accounts: dict[str, Account]) -> None:
     """
     Vérifie les transactions une par une.
     """
