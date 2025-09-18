@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import sys
+from piledger.commands.check import check_command
 from piledger.models.journal import Journal
 
 def main():
@@ -19,7 +20,11 @@ def main():
     journal = Journal.load(Path(sys.argv[2]))
 
     if cmd == "check":
-        print("Vérification des transactions...")
+        try:
+            check_command(journal)
+        except ValueError as e:
+            print(f"Erreur de vérification : {e}")
+            sys.exit(1)
     else:
         print(f"Commande inconnue : {cmd}")
         sys.exit(1)
