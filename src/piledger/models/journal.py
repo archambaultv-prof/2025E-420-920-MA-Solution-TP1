@@ -21,11 +21,11 @@ class Journal:
             txn_path=txn_path
         )
     
-def _to_absolute_path(base_path: Path, relative_path: Path) -> Path:
+def _to_absolute_path(base_path: Path, user_path: Path) -> Path:
     """
     Convertit un chemin relatif en chemin absolu basé sur base_path.
     """
-    if relative_path.is_absolute():
-        return relative_path
+    if user_path.is_absolute():
+        return user_path
     else:
-        return (base_path / relative_path).resolve()
+        return (base_path / user_path).resolve()
